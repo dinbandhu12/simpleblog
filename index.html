@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogspace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#/">Blogspace</a>
+      <div class="header-row">
+        <p>Markdown powered stories</p>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="app" aria-live="polite">
+      <section class="loading">
+        <span></span>
+        Loading journal
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Blogspace</span>
+      <span>Fresh posts from markdown</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
