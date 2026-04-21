@@ -361,7 +361,10 @@ function renderPost(posts, slug) {
     return;
   }
 
-  document.title = `${post.title} | Blogspace`;
+  const quoteCount = (post.html.match(/<blockquote>/g) || []).length;
+  const contentClass = quoteCount > 20 ? "post-content-frame quote-collection" : "post-content-frame";
+
+  document.title = `${post.title} | Quiet Pages`;
   app.innerHTML = `
     <article class="post-page">
       <section class="post-hero">
@@ -384,7 +387,7 @@ function renderPost(posts, slug) {
           </div>
         </div>
       </section>
-      <section class="post-content-frame">
+      <section class="${contentClass}">
         <div class="post-body">
           ${post.html}
         </div>
@@ -415,7 +418,7 @@ async function start() {
     const posts = await loadPosts();
     const route = () => {
       const [, page, slug] = window.location.hash.split("/");
-      document.title = "Blogspace";
+      document.title = "Quiet Pages";
       if (page === "post" && slug) {
         renderPost(posts, slug);
       } else {
